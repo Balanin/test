@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% if user.is_authenticated %}
+    <p>You are signed</p>
+    <a href="{% url 'account_logout' %}">Logout</a>
+
+    {% else %} {% load socialaccount %}
+    <h2>Google login</h2>
+    <a href="{% provider_login_url 'google' %}?next=/api/todos"
+      >Login with Google
+    </a>
+    {% endif %}
+  </body>
+</html>
